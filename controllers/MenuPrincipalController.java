@@ -57,8 +57,14 @@ public class MenuPrincipalController {
     }
 
     @FXML
-    void PesquisarSemVacina(ActionEvent event) {
+    void PesquisarSemVacina(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../views/ListPerson.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
 
+        stage.show();
     }
 
     @FXML
@@ -73,8 +79,14 @@ public class MenuPrincipalController {
     }
 
     @FXML
-    void RegistrosVacina(ActionEvent event) {
+    void RegistrosVacina(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../views/ListVR.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
 
+        stage.show(); 
     }
 
     @FXML

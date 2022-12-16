@@ -46,5 +46,10 @@ public class Person implements Serializable{
         System.out.println("Grupo de Prioridade: " + priorityGroup.toString());
         System.out.println("========================");
     }
+
+    @Override
+    public String toString() {
+        return "Nome: " + name + "\nCPF: " + cpf + "\nSexo: " + sex.toString() + "\nGrupo de Prioridade: " + priorityGroup.toString();
+    }
 }
 
