@@ -47,6 +47,7 @@ public class RegistrarPessoaController implements Initializable {
         
         Repository.repository.getPeopleList().add(person);
         Repository.repository.showPeoplewithoutVaccine();
+        Repository.repository.writeBd();
     }
 
     @Override

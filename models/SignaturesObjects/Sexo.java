@@ -1,6 +1,8 @@
 package models.SignaturesObjects;
 
-public class Sexo {
+import java.io.Serializable;
+
+public class Sexo implements Serializable{
     private char tipo;
 
     private Sexo(char tipo){

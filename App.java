@@ -28,8 +28,8 @@ public class App extends Application{
         primaryStage.show();
     }
     public static void main(String[] args) {
-        launch();
-       
+        Repository.repository.readBd();
+        launch();       
         
         
         boolean whileController = true;
@@ -83,7 +83,3 @@ public class App extends Application{
 
     
 }
-
-/*
- * 
- */

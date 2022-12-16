@@ -1,6 +1,8 @@
 package models.SignaturesObjects;
 
-public class Dose {
+import java.io.Serializable;
+
+public class Dose implements Serializable{
 
     private String tipo;
 

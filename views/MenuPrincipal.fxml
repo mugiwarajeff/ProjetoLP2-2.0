@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuPrincipalController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuPrincipalController">
    <children>
       <Label layoutX="224.0" layoutY="14.0" prefHeight="23.0" prefWidth="153.0" text="BEM VINDO!" textAlignment="CENTER">
          <font>
@@ -15,10 +14,9 @@
       </Label>
       <Button fx:id="inserir" layoutX="207.0" layoutY="65.0" mnemonicParsing="false" onAction="#Inserir" prefHeight="25.0" prefWidth="187.0" text="Inserir pessoa" />
       <Button fx:id="registrarVacina" layoutX="207.0" layoutY="100.0" mnemonicParsing="false" onAction="#RegistrarVacina" prefHeight="25.0" prefWidth="187.0" text="Regsitrar vacinação" />
-      <Button fx:id="pesquisarPessoa" layoutX="207.0" layoutY="138.0" mnemonicParsing="false" onAction="#PesquisarPessoa" prefHeight="25.0" prefWidth="187.0" text="Pesquisar pessoa" />
+      <Button fx:id="pesquisarPessoa" layoutX="207.0" layoutY="138.0" mnemonicParsing="false" onAction="#PesquisarPessoa" prefHeight="25.0" prefWidth="187.0" text="Pesquisar pessoa " />
       <Button fx:id="pesquisarSemVacina" layoutX="207.0" layoutY="175.0" mnemonicParsing="false" onAction="#PesquisarSemVacina" text="Pesquisar pessoa sem vacinação" />
       <Button fx:id="registrosVacina" layoutX="207.0" layoutY="208.0" mnemonicParsing="false" onAction="#RegistrosVacina" prefHeight="25.0" prefWidth="187.0" text="Registros de vacinação" />
       <Button fx:id="dadosVacina" layoutX="207.0" layoutY="244.0" mnemonicParsing="false" onAction="#DadosVacina" prefHeight="25.0" prefWidth="187.0" text="Dados das vacinas" />
-      <Button fx:id="sair" layoutX="562.0" layoutY="14.0" mnemonicParsing="false" onAction="#Sair" prefHeight="8.0" prefWidth="22.0" text="X" />
    </children>
 </AnchorPane>

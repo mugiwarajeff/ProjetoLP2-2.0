@@ -1,11 +1,12 @@
 package models;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import models.SignaturesObjects.Dose;
 import models.SignaturesObjects.Manufacturer;
 
-public class VaccinationRecord {
+public class VaccinationRecord implements Serializable {
     Person person;
     Date applicationDate;
     Manufacturer manufacturer;

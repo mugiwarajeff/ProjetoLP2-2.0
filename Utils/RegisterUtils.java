@@ -68,7 +68,7 @@ public class RegisterUtils {
         }
     }
 
-    private static Person searchPerson(LinkedList<Person> people, String cpfSearch){
+    public static Person searchPerson(LinkedList<Person> people, String cpfSearch){
         Iterator<Person> personIterator = people.iterator();
 
         while(personIterator.hasNext()){
@@ -82,7 +82,7 @@ public class RegisterUtils {
         return null;
     }
 
-    private static boolean isFullVaccinated(Person person, LinkedList<VaccinationRecord> vaccinationRecords){
+    public static boolean isFullVaccinated(Person person, LinkedList<VaccinationRecord> vaccinationRecords){
         Iterator<VaccinationRecord> vaccinationIterator = vaccinationRecords.iterator();
 
         while(vaccinationIterator.hasNext()){
@@ -97,7 +97,7 @@ public class RegisterUtils {
         return false;
     } 
 
-    private static Manufacturer haveOneDose(Person person, LinkedList<VaccinationRecord> vaccinationRecords){
+    public static Manufacturer haveOneDose(Person person, LinkedList<VaccinationRecord> vaccinationRecords){
         Iterator<VaccinationRecord> vaccinationIterator = vaccinationRecords.iterator();
 
         while(vaccinationIterator.hasNext()){
@@ -132,7 +132,7 @@ public class RegisterUtils {
                 return null;
         }
     }
-    private static Dose testDose(int option){
+    public static Dose testDose(int option){
         switch(option){
             case 1:
                 return Dose.firts;
@@ -141,6 +141,20 @@ public class RegisterUtils {
             case 3: 
                 return Dose.firts;
             case 4:
+                return Dose.unique;
+            default:
+                return null;
+        }
+    }
+    public static Dose qtDose(String option){
+        switch(option){
+            case "Sinovac":
+                return Dose.firts;
+            case "AstraZeneca":
+                return Dose.firts;
+            case "Pfizer": 
+                return Dose.firts;
+            case "Janssen":
                 return Dose.unique;
             default:
                 return null;

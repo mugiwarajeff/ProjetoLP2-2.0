@@ -1,5 +1,12 @@
 package Repository;
 
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -17,7 +24,7 @@ public class Repository {
     public static Repository repository = new Repository();
     
     private LinkedList<Person> people = new LinkedList<Person>();
-    private LinkedList<VaccinationRecord> vaccinationRecords = new LinkedList<VaccinationRecord>();
+    public LinkedList<VaccinationRecord> vaccinationRecords = new LinkedList<VaccinationRecord>();
 
     public LinkedList<Person> getPeopleList(){
         return this.people;
@@ -25,6 +32,33 @@ public class Repository {
 
     public LinkedList<VaccinationRecord> getVaccinationList(){
         return this.vaccinationRecords;
+    }
+    @SuppressWarnings("unchecked")
+    public void readBd(){
+        try {
+            ObjectInputStream fluxoR = new ObjectInputStream(new FileInputStream("BD.txt"));
+            people = (LinkedList<Person>) fluxoR.readObject();
+            vaccinationRecords = (LinkedList<VaccinationRecord>) fluxoR.readObject();
+            fluxoR.close();
+        } catch(EOFException e) {
+        	people = new LinkedList<Person>();
+            vaccinationRecords = new LinkedList<VaccinationRecord>();
+        } catch(FileNotFoundException e){
+            new File("BD.txt");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void writeBd(){
+        try {
+            ObjectOutputStream fluxoW = new ObjectOutputStream(new FileOutputStream("BD.txt"));
+            fluxoW.writeObject(people);
+            fluxoW.writeObject(vaccinationRecords);
+            fluxoW.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void searchRegisterByCPF(Scanner input){

@@ -1,9 +1,11 @@
 package models;
 
+import java.io.Serializable;
+
 import models.SignaturesObjects.PriorityGroup;
 import models.SignaturesObjects.Sexo;
 
-public class Person {
+public class Person implements Serializable{
     private String name;
     private String cpf;
     private Sexo sex;
