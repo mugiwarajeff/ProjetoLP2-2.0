@@ -24,7 +24,6 @@ public class App extends Application{
         Parent root = loader.load();
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-
         primaryStage.show();
     }
     public static void main(String[] args) {

@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import Repository.Repository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -34,6 +35,10 @@ public class ListVRController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         loadVR();
         
+    }
+    @FXML
+    void voltar(ActionEvent event) {
+
     }
 
 }

@@ -15,8 +15,8 @@
             "name": "Launch App",
             "request": "launch",
             "mainClass": "App",
-            "projectName": "ProjetoVacina_3765fe33",
-            "vmArgs": "--module-path C:\\JavaFX\\javafx-sdk-19\\lib --add-modules javafx.controls,javafx.fxml"
+            "projectName": "ProjetoLP2-2.0_4b7992ad",
+            "vmArgs": "--module-path F:\\javafx-sdk-18.0.1\\lib --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }

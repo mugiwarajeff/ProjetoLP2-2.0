@@ -1,11 +1,8 @@
 package controllers;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
-
 import Repository.Repository;
-import Utils.UtilPerson;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;

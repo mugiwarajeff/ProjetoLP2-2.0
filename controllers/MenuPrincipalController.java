@@ -9,7 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import javafx.scene.Node;
 
 public class MenuPrincipalController {
 
@@ -47,13 +46,17 @@ public class MenuPrincipalController {
         Scene scene = new Scene(root);
         //stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-
         stage.show(); 
     }
 
     @FXML
-    void PesquisarPessoa(ActionEvent event) {
-
+    void PesquisarPessoa(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../views/PesquisarPessoa.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show(); 
     }
 
     @FXML
@@ -63,7 +66,6 @@ public class MenuPrincipalController {
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-
         stage.show();
     }
 
@@ -74,7 +76,6 @@ public class MenuPrincipalController {
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-
         stage.show(); 
     }
 
@@ -85,13 +86,12 @@ public class MenuPrincipalController {
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-
         stage.show(); 
     }
 
     @FXML
-    void Sair(ActionEvent event) {
-
+    void Sair(ActionEvent event) throws IOException {
+        
     }
 
 }
