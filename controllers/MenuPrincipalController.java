@@ -89,9 +89,4 @@ public class MenuPrincipalController {
         stage.show(); 
     }
 
-    @FXML
-    void Sair(ActionEvent event) throws IOException {
-        
-    }
-
 }

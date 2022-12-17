@@ -12,10 +12,10 @@
             <Font name="Comic Sans MS Bold" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="inserir" layoutX="207.0" layoutY="65.0" mnemonicParsing="false" onAction="#Inserir" prefHeight="25.0" prefWidth="187.0" text="Inserir pessoa" />
-      <Button fx:id="registrarVacina" layoutX="207.0" layoutY="100.0" mnemonicParsing="false" onAction="#RegistrarVacina" prefHeight="25.0" prefWidth="187.0" text="Regsitrar vacinação" />
+      <Button fx:id="inserir" layoutX="207.0" layoutY="65.0" mnemonicParsing="false" onAction="#Inserir" prefHeight="25.0" prefWidth="187.0" text="Cadastrar pessoa" />
+      <Button fx:id="registrarVacina" layoutX="207.0" layoutY="100.0" mnemonicParsing="false" onAction="#RegistrarVacina" prefHeight="25.0" prefWidth="187.0" text="Registrar vacinação" />
       <Button fx:id="pesquisarPessoa" layoutX="207.0" layoutY="138.0" mnemonicParsing="false" onAction="#PesquisarPessoa" prefHeight="25.0" prefWidth="187.0" text="Pesquisar pessoa " />
-      <Button fx:id="pesquisarSemVacina" layoutX="207.0" layoutY="175.0" mnemonicParsing="false" onAction="#PesquisarSemVacina" text="Pesquisar pessoa sem vacinação" />
+      <Button fx:id="pesquisarSemVacina" layoutX="207.0" layoutY="175.0" mnemonicParsing="false" onAction="#PesquisarSemVacina" text=" Lista de pessoas sem vacinação" />
       <Button fx:id="registrosVacina" layoutX="207.0" layoutY="208.0" mnemonicParsing="false" onAction="#RegistrosVacina" prefHeight="25.0" prefWidth="187.0" text="Registros de vacinação" />
       <Button fx:id="dadosVacina" layoutX="207.0" layoutY="244.0" mnemonicParsing="false" onAction="#DadosVacina" prefHeight="25.0" prefWidth="187.0" text="Dados das vacinas" />
    </children>

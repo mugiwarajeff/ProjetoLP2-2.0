@@ -1,13 +1,18 @@
 package controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import Repository.Repository;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
 import models.Person;
 import models.SignaturesObjects.PriorityGroup;
 import models.SignaturesObjects.Sexo;
@@ -30,7 +35,7 @@ public class RegistrarPessoaController implements Initializable {
     private ChoiceBox<String> selectedGP;
 
     @FXML
-    private Button voltar;
+    private Button voltarV;
 
     
     @FXML
@@ -45,6 +50,9 @@ public class RegistrarPessoaController implements Initializable {
         Repository.repository.getPeopleList().add(person);
         Repository.repository.showPeoplewithoutVaccine();
         Repository.repository.writeBd();
+        Alert alerti = new Alert(AlertType.INFORMATION);
+        alerti.setHeaderText("Cadastro realizado com sucesso");
+        alerti.showAndWait();
     }
 
     @Override
@@ -52,5 +60,9 @@ public class RegistrarPessoaController implements Initializable {
         selectSex.getItems().addAll(Sexo.getNamesOfSexo());
         selectedGP.getItems().addAll(PriorityGroup.getNamesOfPriorityGroup());
     }
-
+    @FXML
+    void voltar(ActionEvent event) throws IOException {
+        Stage stage = (Stage) voltarV.getScene().getWindow();
+        stage.close();
+    }
 }

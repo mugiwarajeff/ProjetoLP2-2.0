@@ -11,7 +11,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.stage.Stage;
 import models.Person;
 import models.VaccinationRecord;
 
@@ -19,6 +21,10 @@ public class ListPersonController implements Initializable {
 
     @FXML
     private ListView<Person> ListPerson;
+
+    @FXML
+    private Button voltarV;
+
 
     private ObservableList<Person> obsPerson;
     private LinkedList<Person> people = Repository.repository.getPeopleList();
@@ -58,7 +64,8 @@ public class ListPersonController implements Initializable {
     }
     @FXML
     void voltar(ActionEvent event) {
-
+        Stage stage = (Stage) voltarV.getScene().getWindow();
+        stage.close();
     }
 
 }

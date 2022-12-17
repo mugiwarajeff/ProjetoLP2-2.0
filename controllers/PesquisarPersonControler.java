@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
 import models.VaccinationRecord;
 
 public class PesquisarPersonControler {
@@ -50,8 +51,8 @@ public class PesquisarPersonControler {
         }
         if(isEmpty){
             Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("cpf não encontrado");
-            alert.setHeaderText("Coloque os dados corretamente");
+            alert.setTitle("CPF não encontrado");
+            alert.setHeaderText("Não há nenhum registro para o CPF pesquisado ou o CPF foi informado incorretamente!");
             alert.showAndWait();
         }
         obsVR = FXCollections.observableList(viewVR);
@@ -59,6 +60,8 @@ public class PesquisarPersonControler {
     }
     @FXML
     void voltar(ActionEvent event) throws IOException {
+        Stage stage = (Stage) voltarV.getScene().getWindow();
+        stage.close();
     }
 
 }
