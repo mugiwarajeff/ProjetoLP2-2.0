@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import Repository.Repository;
+import Utils.UtilPerson;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -40,19 +41,53 @@ public class RegistrarPessoaController implements Initializable {
     
     @FXML
     void cadastrarPessoa() throws Exception{
-        String nome = insrtnome.getText();
-        String cpf = insertCPF.getText();
-        Sexo sexo = Sexo.selectedSexo(selectSex.getValue());
-        PriorityGroup priorityGroup = PriorityGroup.selectedPriorityGroup(selectedGP.getValue());
+        try {
+            String name;
+            String cpf = null;
+            Sexo sexo = null;
+            PriorityGroup priorityGroup = null;
 
-        Person person = new Person(nome, cpf, sexo, priorityGroup);
-        
-        Repository.repository.getPeopleList().add(person);
-        Repository.repository.showPeoplewithoutVaccine();
-        Repository.repository.writeBd();
-        Alert alerti = new Alert(AlertType.INFORMATION);
-        alerti.setHeaderText("Cadastro realizado com sucesso");
-        alerti.showAndWait();
+            name = insrtnome.getText();
+            cpf = insertCPF.getText();
+            UtilPerson.cpfValidator(cpf);
+            if(!UtilPerson.cpfVerify(cpf, Repository.repository.getPeopleList())){
+                throw new IllegalAccessException();
+            }else{
+                sexo = Sexo.selectedSexo(selectSex.getValue());
+                priorityGroup = PriorityGroup.selectedPriorityGroup(selectedGP.getValue());
+                if(priorityGroup == null || sexo == null || name == ""){
+                    throw new Exception();
+                }
+                if (!UtilPerson.cpfValidator(cpf)){
+                    throw new IllegalArgumentException();
+                }
+                Person newPerson = new Person(name, cpf, sexo, priorityGroup);
+                Repository.repository.getPeopleList().add(newPerson);    
+                Repository.repository.writeBd();
+                Alert alerti = new Alert(AlertType.INFORMATION);
+                alerti.setHeaderText("Cadastro realizado com sucesso");
+                alerti.showAndWait();
+                insrtnome.setText(null);
+                insertCPF.setText(null);
+                selectSex.setValue(null);
+                selectedGP.setValue(null);
+            }
+        }catch(IllegalAccessException e){
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("ERRO");
+            alert.setHeaderText("CPF já cadastrado!");
+            alert.showAndWait();
+        }catch (IllegalArgumentException e) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("ERRO");
+            alert.setHeaderText("CPF digitado nos padroes incorretos!\nColoque no formato XXX-XXX-XXX-XX");
+            alert.showAndWait();
+        }catch(Exception e){
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("ERRO");
+            alert.setHeaderText("Há um ou mais campos vazios");
+            alert.showAndWait();
+        }
     }
 
     @Override

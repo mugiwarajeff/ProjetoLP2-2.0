@@ -13,15 +13,15 @@ public class Sexo implements Serializable{
     public final static Sexo mulher = new Sexo('M');
 
     static public String[] getNamesOfSexo(){
-        String[] arrayReturn = {"H", "M"};
+        String[] arrayReturn = {"Masculino", "Feminino"};
         return arrayReturn;
     }
 
     public static Sexo selectedSexo(String option) throws Exception{
         switch(option){
-            case "H":
+            case "Masculino":
                 return homem;
-            case "M": 
+            case "Feminino": 
                 return mulher;
             default:
                 throw new Exception("Valor digitado invalido");

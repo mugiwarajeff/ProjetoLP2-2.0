@@ -125,7 +125,7 @@ public class UtilPerson {
     }
 
     
-    private static boolean cpfVerify(String cpf, LinkedList<Person> people){
+    public static boolean cpfVerify(String cpf, LinkedList<Person> people){
         Iterator<Person> personIterator = people.iterator();
 
         while(personIterator.hasNext()){
@@ -136,7 +136,7 @@ public class UtilPerson {
         return true;
     }
 
-    private static boolean cpfValidator(String cpf){
+    public static boolean cpfValidator(String cpf){
         Pattern pattern = Pattern.compile("[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(cpf);
         boolean matchFound = matcher.find();

@@ -42,15 +42,10 @@ public class RegistrarVacinaController implements Initializable {
             Date date = new Date();
             Manufacturer manufacturer;
             Dose dose=null;
-            boolean cpfSearchError = true;
-            while(cpfSearchError){
-                cpfOfPerson = CPFregistro.getText();
-                person = RegisterUtils.searchPerson(Repository.repository.getPeopleList() , cpfOfPerson);
-                if(person != null){
-                    cpfSearchError = false;
-                }else{
-                    throw new Exception();
-                }
+            cpfOfPerson = CPFregistro.getText();
+            person = RegisterUtils.searchPerson(Repository.repository.getPeopleList() , cpfOfPerson);
+            if(person == null){
+                throw new Exception();
             }
             if(RegisterUtils.isFullVaccinated(person, Repository.repository.vaccinationRecords)){
                 throw new IllegalArgumentException();
@@ -59,26 +54,24 @@ public class RegistrarVacinaController implements Initializable {
                 if(manufacturer == null){
                     manufacturer = Manufacturer.selectManufacture(opcaoVacina.getValue());
                     dose = RegisterUtils.qtDose(opcaoVacina.getValue());
-                    System.out.println("Primeira dose aplicada");
                     VaccinationRecord vacinationRecord = new VaccinationRecord(person, date, manufacturer, dose);
                     Repository.repository.vaccinationRecords.add(vacinationRecord);
                 }else{
                     dose = Dose.second;
-                    System.out.println("Segunda dose aplicada");
                     VaccinationRecord vacinationRecord = new VaccinationRecord(person, date, manufacturer, dose);
                     Repository.repository.vaccinationRecords.add(vacinationRecord);
                 } 
             }
             Repository.repository.writeBd();
             Alert alerti = new Alert(AlertType.INFORMATION);
-            alerti.setTitle("Registro realizado com sucesso");
+            alerti.setTitle("Registro realizado com sucesso.");
             if(dose == Dose.second){
-                alerti.setHeaderText("Segunda dose aplicada");
+                alerti.setHeaderText("Segunda dose aplicada!");
             }else{
                 if(dose == Dose.firts){
-                    alerti.setHeaderText("Primeira dose aplicada");
+                    alerti.setHeaderText("Primeira dose aplicada!");
                 }else{
-                    alerti.setHeaderText("Dose única aplicada");
+                    alerti.setHeaderText("Dose única aplicada!");
                 }
             }
             alerti.showAndWait();
@@ -91,11 +84,10 @@ public class RegistrarVacinaController implements Initializable {
             alert.showAndWait();
         }catch (Exception e) {
             Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("cpf não encontrado");
-            alert.setHeaderText("Coloque os dados corretamente");
+            alert.setTitle("ERRO");
+            alert.setHeaderText("CPF não encontrado ou a vacina não foi selecionada!");
             alert.showAndWait();
         }
-        Repository.repository.showAllRecords();
     }
 
     @Override
@@ -107,5 +99,4 @@ public class RegistrarVacinaController implements Initializable {
         Stage stage = (Stage) voltarV.getScene().getWindow();
         stage.close();
     }
-
 }
