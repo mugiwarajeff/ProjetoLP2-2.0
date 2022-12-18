@@ -36,7 +36,6 @@ public class ListVRController implements Initializable {
         ListVR.setItems(obsVR);
     }
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         loadVR();
@@ -47,5 +46,4 @@ public class ListVRController implements Initializable {
         Stage stage = (Stage) voltarV.getScene().getWindow();
         stage.close();
     }
-
 }

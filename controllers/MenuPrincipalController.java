@@ -34,8 +34,14 @@ public class MenuPrincipalController {
     private Button sair;
 
     @FXML
-    void DadosVacina(ActionEvent event) {
-
+    void DadosVacina(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../views/DadosVacinas.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        //stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show(); 
     }
 
     @FXML

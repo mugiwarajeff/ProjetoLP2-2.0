@@ -211,9 +211,6 @@ public class Repository {
        
         try{
             double percentOfPersonsFullVaccinated = (quantPersonsFullVaccinated / this.people.size()) * 100;
-            System.out.println(percentOfPersonsFullVaccinated);
-            System.out.println(quantPersonsFullVaccinated);
-            System.out.println(this.people.size());
             if (Double.isNaN(percentOfPersonsFullVaccinated)) return 0.0;
             return percentOfPersonsFullVaccinated;
         }catch (ArithmeticException e){
